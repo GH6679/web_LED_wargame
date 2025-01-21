@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED WARGAME!</title>
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Chart.js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+
+
+
+
+<body class="" style="background-color: #3a3a3a ;">
+
+
+    <!-- 로그인 모달 -->
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">로그인</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form" method="POST" action="">
+                        <input type="hidden" name="form-name" value="login-form">
+                        <div class="mb-3">
+                            <label class="form-label" for="username-login">Id </label>
+                            <input class="form-control" id="username-login" type="text" name="username">
+                            <span class="login-msg"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password-login">Password </label>
+                            <input class="form-control" id="password-login" type="password" name="password">
+                            <span class="login-msg"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="login-btn">로그인</button>
+                    <button class="btn btn-success" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">회원가입</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 회원가입 모달 -->
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">회원가입</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signin-form" method="POST" action="">
+                        <input type="hidden" name="form-name" value="signin-form">
+                        <div class="mb-3">
+                            <label class="form-label" for="username-signin">Id </label>
+                            <div class="d-flex">
+                                <input class="form-control col" id="username-signin" type="text" name="username">
+                                <button class="btn btn-success col-3" type="button" id="id-ch-btn">중복 확인</button>
+                            </div>
+                            <span class="signin-msg"></span>
+
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="nickname-signin">nickname</label>
+                            <input class="form-control" id="nickname-signin" type="text" name="nickname">
+                            <span class="signin-msg"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password-signin">Password </label>
+                            <input class="form-control" id="password-signin" type="password" name="password">
+                            <span class="signin-msg"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password-check-signin">Password check</label>
+                            <input class="form-control" id="password-check-signin" type="password" name="password-check">
+                            <span class="signin-msg"></span>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="signin-btn">회원가입</button>
+                    <button class="btn btn-danger" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">돌아가기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 범용 alert 모달 -->
+    <div class="modal fade" id="alert-modal" tabindex="-1" aria-labelledby="alert-modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="alert-modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="alert-modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="alert-modal-end" data-bs-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-ligh bg-dark text-whit nav-top" style="">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white neon" href="#">
+                <img src="/assets/images/LEDTEAM_로고.jpg" alt="TEAM LED Logo" class="navbar-logo"
+                    class="d-inline-block align-text-top">
+                TEAM LED
+            </a>
+
+            <div>
+                <div class="d-flex">
+                    <span class="me-4 pt-1" id="n-name"></span>
+                    <span class="me-4 pt-1" id="n-point"></span>
+                    <button type="button" class="btn btn-success me-4" id="n-ch-btn">채팅 <span class="badge bg-secondary">0</span></button>
+                    <button type="button" class="btn btn-primary me-5" id="n-logout-btn">로그아웃</button>
+                </div>
+
+
+
+
+
+                <a class="btn btn-primary me-5" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="n-login">로그인</a>
+
+
+
+
+
+
+            </div>
+
+            <!-- <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+
+
+            <div class="col-1 main-menu-list ps-0">
+                <nav>
+
+                    <div class="list-group c-menu-list" id="list-tab" role="tablist">
+                        <div class="bg-secondary text-white d-flex justify-content-center p-2">MENU</div>
+                        <a class="list-group-item list-group-item-action active list-group-item-secondary d-flex justify-content-center"
+                            id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab"
+                            aria-controls="list-home"><span class="material-symbols-outlined">home</span></a>
+                        <a class="list-group-item list-group-item-action list-group-item-secondary d-flex justify-content-center" id="list-challenge-list"
+                            data-bs-toggle="list" href="#list-challenge" role="tab" aria-controls="list-challenge"><span class="material-symbols-outlined">edit_note</span></a>
+                        <a class="list-group-item list-group-item-action list-group-item-secondary d-flex justify-content-center" id="list-score-list"
+                            data-bs-toggle="list" href="#list-score" role="tab"
+                            aria-controls="list-score"><span class="material-symbols-outlined">sports_score</span></a>
+                        <a class="list-group-item list-group-item-action list-group-item-secondary d-flex justify-content-center" id="list-userdata-list"
+                            data-bs-toggle="list" href="#list-userdata" role="tab"
+                            aria-controls="list-userdata"><span class="material-symbols-outlined">finance</span></a>
+                        <div class="admin_m bg-secondary text-white d-flex justify-content-center p-2 mt-2">Admin MENU</div>
+                        <a class="admin_m list-group-item list-group-item-action list-group-item-secondary d-flex justify-content-center"
+                            id="list-user-list" data-bs-toggle="list" href="#list-user" role="tab"
+                            aria-controls="list-user"><span class="material-symbols-outlined">home</span></a>
+                        <a class="admin_m list-group-item list-group-item-action list-group-item-secondary d-flex justify-content-center" id="list-item-list"
+                            data-bs-toggle="list" href="#list-item" role="tab" aria-controls="list-item"><span class="material-symbols-outlined">edit_note</span></a>
+
+                    </div>
+
+                </nav>
+            </div>
+
+            <!-- style="background-color: #3d3d3d ; color: #e6e6e6;" -->
+
+            <div class="col-10 bg-light" id="body main">
+
+                <div>
+
+                    <div class="row">
+                        <div class="col pt-3" style="min-height: 100vh;">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="list-home" role="tabpanel"
+                                    aria-labelledby="list-home-list">
+
+                                    <!-- 히어로 섹션 -->
+                                    <div class="hero-section">
+                                        <div class="cyber-glitch-title text-center mb-4">
+                                            <h1 class="display-4 mb-3">TEAM LED SECURITY</h1>
+                                            <p class="cyber-subtitle">Cyber Security Research & Development</p>
+                                        </div>
+
+                                        <!-- 통계 카드 -->
+                                        <div id="main-stats-container" class="stats-container">
+                                            <div class="stat-box">
+                                                <span class="stat-number" id="totalChallenges">0</span>
+                                                <span class="stat-label">Total Challenges</span>
+                                            </div>
+                                            <div class="stat-box">
+                                                <span class="stat-number" id="activeUsers">0</span>
+                                                <span class="stat-label">Signing Users</span>
+                                            </div>
+                                            <div class="stat-box">
+                                                <span class="stat-number" id="totalSolves">0</span>
+                                                <span class="stat-label">Total Solves</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 최근 도전 과제 -->
+                                    <div class="challenges-section mt-5">
+                                        <h2 class="section-title">
+                                            <span class="material-symbols-outlined">terminal</span>
+                                            Latest Challenges
+                                        </h2>
+                                        <div class="challenge-grid">
+
+                                        </div>
+                                    </div>
+
+                                    <!-- 최근 활동 -->
+                                    <div class="recent-activities mt-5">
+                                        <h2 class="section-title">
+                                            <span class="material-symbols-outlined">history</span>
+                                            Recent Activities
+                                        </h2>
+                                        <div class="activity-grid">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="list-challenge" role="tabpanel" aria-labelledby="list-challenge-list">
+                                    <div class="container-fluid px-4"> <!-- container를 container-fluid로 변경하고 패딩 추가 -->
+                                        <div class="row justify-content-start g-2" id="c-list">
+                                            <!-- 문제 박스들이 여기에 추가됨 -->
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="tab-pane fade" id="list-score" role="tabpanel" aria-labelledby="list-score-list">
+                                    <!-- 스코어보드 컨테이너 -->
+                                    <div class="scoreboard-container">
+                                        <h2 class="scoreboard-title">
+                                            <span class="material-symbols-outlined">military_tech</span>
+                                            Top Hackers
+                                        </h2>
+
+                                        <!-- 스코어보드 테이블 -->
+                                        <div class="score-table-container">
+                                            <table class="score-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Rank</th>
+                                                        <th>Hacker</th>
+                                                        <th>Points</th>
+                                                        <th>Challenges</th>
+                                                        <th>Last Active</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="score-table-body">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="list-userdata" role="tabpanel" aria-labelledby="list-userdata-list">
+                                    <!-- 유저 통계  -->
+                                    <div id="lu-fullPage">
+                                        <div id="lu-fullPage-1" class="section">
+                                        </div>
+                                        <div id="lu-fullPage-2" class="section">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="tab-pane fade" id="list-user" role="tabpanel" aria-labelledby="list-user-list">
+
+                                    user
+
+
+                                </div>
+                                <div class="tab-pane fade" id="list-item" role="tabpanel" aria-labelledby="list-item-list">
+                                    <div class="d-flex justify-content-center align-items-center ps-5 pe-5 pt-2 pb-0">
+                                        <span class="fs-3 pb-4 fw-bold">문제 추가</span>
+                                    </div>
+                                    <div class="container border border-secondary p-5 bg-white">
+
+                                        <form id="sc-form" method="POST" action="">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="sc_isweb" name="sc-isweb">
+                                                <label class="form-check-label" for="sc_isweb">WEB?</label>
+                                            </div>
+
+
+                                            <label class="form-label" for="sc-title">문제 제목</label>
+                                            <input class="form-control" id="sc-title" type="text" name="sc-title">
+
+                                            <label class="form-label" for="sc-ssh">ssh 링크</label>
+                                            <input class="form-control" id="sc-ssh" type="text" name="sc-ssh">
+
+                                            <label class="form-label" for="sc-link">web 링크</label>
+                                            <input class="form-control" id="sc-link" type="text" name="sc-link">
+
+                                            <label class="form-label" for="sc-key">키 값</label>
+                                            <input class="form-control" id="sc-key" type="text" name="sc-key">
+
+                                            <label for="sc-point" class="form-label">점수 : </label>&nbsp;<span id="sc-p-v" class="fw-semibold"></span>
+                                            <input type="range" class="form-range" min="5" max="15" id="sc-point" name="sc-point">
+
+                                            <label for="sp-difficulty" class="form-label">난이도 : </label>&nbsp;<span id="sc-d-v" class="fw-semibold"></span>
+                                            <input type="range" class="form-range" min="0" max="2" id="sc-difficulty" name="sc-difficulty">
+
+                                            <label class="form-label" for="sc-hint">설명</label>
+                                            <textarea class="form-control" id="sc-hint" type="text" name="sc-hint" rows="5"></textarea>
+
+                                            <label class="form-label" for="sc-content">힌트</label>
+                                            <textarea class="form-control" id="sc-content" type="text" name="sc-content" rows="3"></textarea>
+
+                                            <input type="hidden" name="form-name" value="sc-form">
+
+                                            <div class="d-flex justify-content-center align-items-center p-5 pb-0">
+                                                <button class="btn btn-primary ">추가 하기</button>
+                                            </div>
+
+
+
+
+                                        </form>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-1"></div>
+
+
+
+            </div>
+
+            <!-- 채팅창 컨테이너 -->
+            <div id="chat-box" class="chat-container">
+                <div class="chat-header">
+                    <span>채팅</span>
+                    <button type="button" class="btn-close" aria-label="Close"></button>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- 채팅 메시지들이 여기에 표시됨 -->
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" id="chat-input" placeholder="메시지를 입력하세요...">
+                    <button class="chat-send-btn">
+                        <span class="material-symbols-outlined" id="chat-send-btn">send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- main.js -->
+    <script src="/js/main.js"></script>
+    <!-- index.js -->
+    <script src="/js/index.js"></script>
+
+
+
+</body>
+
+</html>
+

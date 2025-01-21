@@ -1,0 +1,1498 @@
+        /* 색 조정 */
+        :root {
+            --neon-green: #00ff41;
+            --neon-pink: #ff2a6d;
+            --neon-blue: #00c3ff;
+            --dark: #0d0208;
+            --matrix-bg: #001000;
+
+        }
+
+        .section {
+            height: 100vh;
+        }
+
+        .password-check-msg {
+            display: none;
+        }
+
+
+        .main-menu-list {
+            transition: all 0.3s ease;
+        }
+
+        /* 최상단 네비게이션 바 */
+        .nav-top {
+            background-color: rgba(13, 17, 23, 0.55) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+        }
+
+        /* 문제 박스 */
+        .c_box {
+
+            background: rgba(0, 195, 255, 0.1);
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            animation: statGlow 3s infinite alternate;
+            min-width: 220px;
+            max-width: 245px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* background-color: #fff; */
+            transition: transform 0.2s ease-in-out;
+
+        }
+
+        .c_box:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 문제 박스 타이틀 박스 */
+        .c_title_box {
+
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            transition: opacity 0.2s ease;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+
+
+        /* 전체 배경 수정 */
+        body {
+            /* 기본 스크롤 제거 */
+            background-color: #0a0a0f;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('/assets/images/476f6c42d7b37ac4396b3f92d34b1e6a.jpg');
+            background-size: 100% auto;
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-color: #0a0a0f;
+            color: #ffffff;
+        }
+
+        /* 메뉴바 메인 컨테이너 */
+        .main-menu-list {
+            background: rgba(13, 17, 23, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(0, 195, 255, 0.2);
+            box-shadow: 5px 0 20px rgba(0, 195, 255, 0.1);
+            min-height: 100vh;
+        }
+
+        /* MENU 타이틀과 ADMIN 타이틀 통일 */
+        .bg-secondary.text-white,
+        .admin_m.bg-secondary {
+            background: rgba(0, 195, 255, 0.2) !important;
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+            margin-bottom: 15px;
+        }
+
+        /* 메인 콘텐츠 영역 */
+        .col-10.bg-light {
+            background: rgba(13, 17, 23, 0.7) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #ffffff;
+        }
+
+        /* 메뉴 아이템 */
+        .list-group-item {
+            background: rgba(20, 25, 35, 0.6) !important;
+            border: 1px solid rgba(0, 195, 255, 0.15) !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            transition: all 0.3s ease;
+        }
+
+        /* 메뉴 아이콘 */
+        .material-symbols-outlined {
+            color: #00c3ff;
+            text-shadow: 0 0 8px rgba(0, 195, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        /* 호버 효과 */
+        .list-group-item:hover {
+            background: rgba(0, 195, 255, 0.15) !important;
+            border-color: rgba(0, 195, 255, 0.3) !important;
+            transform: translateX(5px);
+            box-shadow:
+                0 0 15px rgba(0, 195, 255, 0.2),
+                inset 0 0 10px rgba(0, 195, 255, 0.1);
+        }
+
+        .list-group-item:hover .material-symbols-outlined {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 195, 255, 0.8);
+        }
+
+        /* 활성 메뉴 */
+        .list-group-item.active {
+            background: rgba(0, 195, 255, 0.2) !important;
+            border-color: rgba(0, 195, 255, 0.4) !important;
+            box-shadow:
+                0 0 20px rgba(0, 195, 255, 0.2),
+                inset 0 0 15px rgba(0, 195, 255, 0.1);
+        }
+
+        /* TEAM LED 로고 스타일 */
+        .neon-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            box-shadow:
+                0 0 15px rgba(0, 195, 255, 0.2),
+                inset 0 0 10px rgba(0, 195, 255, 0.1);
+            display: flex;
+            align-items: center;
+            animation: borderGlow 2s infinite alternate;
+        }
+
+        .navbar-logo {
+            width: 45px;
+            height: 45px;
+            margin-right: 15px;
+            filter: drop-shadow(0 0 8px rgba(0, 195, 255, 0.5));
+        }
+
+        .neon-text {
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        /* 폼 컨테이너 스타일 */
+        .form-container {
+            background: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 195, 255, 0.1);
+        }
+
+        /* 라벨 스타일 */
+        .form-label {
+            color: #00c3ff;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 8px rgba(0, 195, 255, 0.5);
+        }
+
+        /* 입력 필드 스타일 */
+        input[type="text"].form-control,
+        input[type="password"].form-control,
+        textarea.form-control {
+            background: rgba(20, 25, 35, 0.7) !important;
+            border: 1px solid rgba(0, 195, 255, 0.2) !important;
+            color: #ffffff !important;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: rgba(25, 30, 40, 0.8) !important;
+            border-color: rgba(0, 195, 255, 0.4) !important;
+            box-shadow: 0 0 15px rgba(0, 195, 255, 0.2) !important;
+            color: #ffffff !important;
+        }
+
+        /* 플레이스홀더 스타일 */
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+            opacity: 1;
+        }
+        
+        /* Firefox에서의 placeholder 스타일링 */
+        .form-control::-moz-placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+            opacity: 1;
+        }
+
+        /* 체크박스 스타일 */
+        .form-check-input {
+            background-color: rgba(20, 25, 35, 0.7);
+            border-color: rgba(0, 195, 255, 0.3);
+        }
+
+        .form-check-input:checked {
+            background-color: #00c3ff;
+            border-color: #00c3ff;
+            box-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+        }
+
+        .form-check-label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* 셀렉트 박스 스타일 */
+        .form-select {
+            background-color: rgba(20, 25, 35, 0.7) !important;
+            border: 1px solid rgba(0, 195, 255, 0.2) !important;
+            color: #ffffff !important;
+        }
+
+        .form-select:focus {
+            border-color: rgba(0, 195, 255, 0.4) !important;
+            box-shadow: 0 0 15px rgba(0, 195, 255, 0.2) !important;
+        }
+
+        /* 버튼 스타일 */
+        .btn-primary {
+            background: rgba(0, 195, 255, 0.2);
+            border: 1px solid rgba(0, 195, 255, 0.4);
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: rgba(0, 195, 255, 0.4);
+            border-color: rgba(0, 195, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 195, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* 포인트와 난이도 표시 */
+        #sc-p-v,
+        #sc-d-v {
+            color: #00c3ff;
+            text-shadow: 0 0 8px rgba(0, 195, 255, 0.5);
+            font-weight: 500;
+        }
+
+        /* 난이도별 색상 */
+        #sc-d-v.easy {
+            color: #00ff9d;
+            text-shadow: 0 0 8px rgba(0, 255, 157, 0.5);
+        }
+
+        #sc-d-v.normal {
+            color: #00c3ff;
+            text-shadow: 0 0 8px rgba(0, 195, 255, 0.5);
+        }
+
+        #sc-d-v.hard {
+            color: #ff3e3e;
+            text-shadow: 0 0 8px rgba(255, 62, 62, 0.5);
+        }
+
+
+        /* 문제 추가 페이지 컨테너 스타일 수정 */
+        #list-item .container {
+            background: rgba(13, 17, 23, 0.8) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 195, 255, 0.2) !important;
+            border-radius: 10px;
+            box-shadow:
+                0 0 20px rgba(0, 195, 255, 0.1),
+                inset 0 0 20px rgba(0, 195, 255, 0.05);
+        }
+
+        /* 문제 추가 타이틀 */
+        #list-item .fs-3 {
+            color: #00c3ff;
+            text-shadow:
+                0 0 5px rgba(0, 195, 255, 0.5),
+                0 0 10px rgba(0, 195, 255, 0.3);
+            letter-spacing: 2px;
+        }
+
+        /* 체크박스 컨테이너 */
+        /* #list-item .form-check {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(20, 25, 35, 0.4);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 195, 255, 0.1);
+        } */
+
+        /* WEB 체크박스 라벨 */
+        #list-item .form-check-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* 체크박스 스위치 */
+        #list-item .form-switch .form-check-input {
+            background-color: rgba(0, 195, 255, 0.2);
+            border-color: rgba(0, 195, 255, 0.4);
+        }
+
+        #list-item .form-switch .form-check-input:checked {
+            background-color: #00c3ff;
+            border-color: #00c3ff;
+            box-shadow: 0 0 15px rgba(0, 195, 255, 0.5);
+        }
+
+        /* 입력 필드 그룹 간격 */
+        #list-item .form-control,
+        #list-item .form-range {
+            margin-bottom: 20px;
+        }
+
+        /* 레인지 슬라이더 스타일 */
+        #list-item .form-range::-webkit-slider-thumb {
+            background: #00c3ff;
+            box-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+        }
+
+        /* 버튼 컨테이너 */
+        #list-item .d-flex.justify-content-center {
+            margin-top: 20px;
+        }
+
+        /* 모달 스타일링 */
+        .modal-content {
+            background: rgba(13, 17, 23, 0.95) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            box-shadow:
+                0 0 30px rgba(0, 195, 255, 0.2),
+                inset 0 0 20px rgba(0, 195, 255, 0.1);
+        }
+
+        /* 모달 헤더 */
+        .modal-header {
+            border-bottom: 1px solid rgba(0, 195, 255, 0.2);
+        }
+
+        .modal-title {
+            color: #00c3ff;
+            text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* 모달 입력 필드 */
+        .modal-body .form-control {
+            background: rgba(20, 25, 35, 0.7);
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .modal-body .form-control:focus {
+            background: rgba(25, 30, 40, 0.8);
+            border-color: rgba(0, 195, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 195, 255, 0.2);
+            color: #ffffff;
+        }
+
+        /* 모달 라벨 */
+        .modal-body label {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 5px rgba(0, 195, 255, 0.3);
+        }
+
+        /* 모달 푸터 */
+        .modal-footer {
+            border-top: 1px solid rgba(0, 195, 255, 0.2);
+        }
+
+        /* B5 버튼 기본 스타일 수정========================================== */
+        /* B5 primary 버튼 */
+        .btn-primary {
+            background: rgba(0, 195, 255, 0.2);
+            border: 1px solid rgba(0, 195, 255, 0.4);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: rgba(0, 195, 255, 0.4);
+            border-color: rgba(0, 195, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 195, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* B5 success 버튼 */
+        .btn-success {
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: #00ff00;
+            transition: all 0.3s ease;
+        }
+
+        .btn-success:hover {
+            background: rgba(0, 255, 195, 0.4);
+            border-color: rgba(0, 255, 195, 0.6);
+            box-shadow: 0 0 20px rgba(0, 255, 195, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* B5 danger 버튼 */
+        .btn-danger {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff0000;
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            background: rgba(255, 0, 195, 0.4);
+            border-color: rgba(255, 0, 195, 0.6);
+            box-shadow: 0 0 20px rgba(255, 0, 195, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* ================================================================ */
+
+
+
+
+
+
+
+
+
+        /* 닫기 버튼 */
+        .btn-close {
+            filter: invert(1) drop-shadow(0 0 5px rgba(0, 195, 255, 0.5));
+        }
+
+        /* 네온 테두리 애니메이션 */
+        @keyframes borderGlow {
+            from {
+                box-shadow:
+                    0 0 15px rgba(0, 195, 255, 0.2),
+                    inset 0 0 10px rgba(0, 195, 255, 0.1);
+                border-color: rgba(0, 195, 255, 0.3);
+            }
+
+            to {
+                box-shadow:
+                    0 0 25px rgba(0, 195, 255, 0.4),
+                    inset 0 0 20px rgba(0, 195, 255, 0.2);
+                border-color: rgba(0, 195, 255, 0.6);
+            }
+        }
+
+        /* 텍스트 네온 효과 애니메이션 */
+        @keyframes textGlow {
+            from {
+                text-shadow:
+                    0 0 10px rgba(0, 195, 255, 0.5),
+                    0 0 20px rgba(0, 195, 255, 0.3),
+                    0 0 30px rgba(0, 195, 255, 0.2);
+            }
+
+            to {
+                text-shadow:
+                    0 0 20px rgba(0, 195, 255, 0.8),
+                    0 0 30px rgba(0, 195, 255, 0.6),
+                    0 0 40px rgba(0, 195, 255, 0.4);
+            }
+        }
+
+        /* 본문 컨테이너 네온 효과 */
+        .main {
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            box-shadow:
+                0 0 20px rgba(0, 195, 255, 0.3),
+                inset 0 0 30px rgba(0, 195, 255, 0.1);
+            animation: mainBorderGlow 3s infinite alternate;
+        }
+
+        @keyframes mainBorderGlow {
+            from {
+                box-shadow:
+                    0 0 20px rgba(0, 195, 255, 0.3),
+                    inset 0 0 30px rgba(0, 195, 255, 0.1);
+                border-color: rgba(0, 195, 255, 0.3);
+            }
+
+            to {
+                box-shadow:
+                    0 0 35px rgba(0, 195, 255, 0.5),
+                    inset 0 0 50px rgba(0, 195, 255, 0.2);
+                border-color: rgba(0, 195, 255, 0.6);
+            }
+        }
+
+        /* 로고 및 텍스트 네온 효과 강화 */
+        .neon-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 195, 255, 0.5);
+            box-shadow:
+                0 0 20px rgba(0, 195, 255, 0.4),
+                inset 0 0 15px rgba(0, 195, 255, 0.2);
+            display: flex;
+            align-items: center;
+            animation: logoGlow 1.5s infinite alternate;
+        }
+
+        /* 로고 이미지 */
+        .navbar-logo {
+            width: 45px;
+            height: 45px;
+            margin-right: 15px;
+            filter: drop-shadow(0 0 10px rgba(0, 195, 255, 0.8));
+            animation: logoImageGlow 1.5s infinite alternate;
+        }
+
+        /* LED TEAM 텍스트 */
+        .neon-text {
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            animation: textStrongGlow 1.5s infinite alternate;
+        }
+
+        /* 로고 컨테이너 강화된 네온 효과 */
+        @keyframes logoGlow {
+            from {
+                box-shadow:
+                    0 0 20px rgba(0, 195, 255, 0.4),
+                    inset 0 0 15px rgba(0, 195, 255, 0.2);
+                border-color: rgba(0, 195, 255, 0.5);
+            }
+
+            to {
+                box-shadow:
+                    0 0 40px rgba(0, 195, 255, 0.7),
+                    inset 0 0 30px rgba(0, 195, 255, 0.4);
+                border-color: rgba(0, 195, 255, 1);
+            }
+        }
+
+        /* 로고 이미지 강화된 네온 효과 */
+        @keyframes logoImageGlow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(0, 195, 255, 0.8));
+            }
+
+            to {
+                filter: drop-shadow(0 0 20px rgba(0, 195, 255, 1));
+            }
+        }
+
+        /* LED TEAM 텍스트 강화된 네온 효과 */
+        @keyframes textStrongGlow {
+            from {
+                text-shadow:
+                    0 0 10px rgba(0, 195, 255, 0.8),
+                    0 0 20px rgba(0, 195, 255, 0.5),
+                    0 0 30px rgba(0, 195, 255, 0.3);
+            }
+
+            to {
+                text-shadow:
+                    0 0 20px #00c3ff,
+                    0 0 40px #00c3ff,
+                    0 0 60px rgba(0, 195, 255, 0.8),
+                    0 0 80px rgba(0, 195, 255, 0.5);
+            }
+        }
+
+        /* 네비게이션 바 컨테이너에 레이저 효과 추가 */
+        .navbar {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 레이저 빔 효과 */
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    transparent 50%,
+                    #00c3ff 50%,
+                    #00c3ff 65%,
+                    transparent 65%);
+            animation: laserBeam 4s infinite;
+        }
+
+        .navbar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    transparent 50%,
+                    #00c3ff 50%,
+                    #00c3ff 65%,
+                    transparent 65%);
+            animation: laserBeamReverse 4s infinite;
+        }
+
+        /* 레이저 빔 애니메이션 */
+        @keyframes laserBeam {
+            0% {
+                left: -100%;
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes laserBeamReverse {
+            0% {
+                right: -100%;
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                right: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* 로고 컨테이너에도 레이저 효과 추가 */
+        .neon-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    #00c3ff 20%,
+                    #00c3ff 40%,
+                    transparent 60%);
+            animation: logoLaserBeam 3s infinite;
+            filter: blur(1px);
+        }
+
+        @keyframes logoLaserBeam {
+            0% {
+                left: -100%;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* 추가적인 광선 효과 */
+        .laser-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+                    rgba(0, 195, 255, 0.15) 0%,
+                    transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* 메인 컨텐츠 스타일링 */
+        .main-content {
+            padding: 2rem;
+            background: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 히어로 섹션 */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .cyber-glitch-title h1 {
+            font-size: 4rem;
+            color: #00c3ff;
+            text-shadow:
+                0 0 10px rgba(0, 195, 255, 0.8),
+                0 0 20px rgba(0, 195, 255, 0.5),
+                0 0 30px rgba(0, 195, 255, 0.3);
+            animation: titleGlow 2s infinite alternate;
+        }
+
+        .cyber-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 1rem;
+        }
+
+        /* 통계 박스 */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-box {
+            background: rgba(0, 195, 255, 0.1);
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            min-width: 200px;
+            animation: statGlow 3s infinite alternate;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            color: #00c3ff;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* 최근 활동 섹션 */
+        .recent-activities {
+            margin-top: 4rem;
+        }
+
+        .section-title {
+            color: #00c3ff;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .activity-card {
+            background: rgba(20, 25, 35, 0.7);
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 195, 255, 0.3);
+        }
+
+        /* 애니메이션 */
+        @keyframes titleGlow {
+            from {
+                text-shadow:
+                    0 0 10px rgba(0, 195, 255, 0.8),
+                    0 0 20px rgba(0, 195, 255, 0.5);
+            }
+
+            to {
+                text-shadow:
+                    0 0 20px rgba(0, 195, 255, 1),
+                    0 0 40px rgba(0, 195, 255, 0.8),
+                    0 0 60px rgba(0, 195, 255, 0.5);
+            }
+        }
+
+        /* 글로우 효과 기본 (푸른색) */
+        @keyframes statGlow {
+            from {
+                box-shadow:
+                    0 0 10px rgba(0, 195, 255, 0.2),
+                    inset 0 0 5px rgba(0, 195, 255, 0.1);
+            }
+
+            to {
+                box-shadow:
+                    0 0 20px rgba(0, 195, 255, 0.4),
+                    inset 0 0 15px rgba(0, 195, 255, 0.2);
+            }
+        }
+
+
+        /* 글로우 효과 초록색 */
+        @keyframes statGlowGreen {
+            from {
+                box-shadow:
+                    0 0 10px rgba(0, 255, 0, 0.2),
+                    inset 0 0 5px rgba(0, 255, 0, 0.1);
+            }
+
+            to {
+                box-shadow:
+                    0 0 20px rgba(0, 255, 0, 0.4),
+                    inset 0 0 15px rgba(0, 255, 0, 0.2);
+            }
+        }
+
+        /* 공지사항 섹션 */
+        .notice-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(13, 17, 23, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 195, 255, 0.2);
+        }
+
+        .notice-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .notice-card {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: rgba(20, 25, 35, 0.6);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 195, 255, 0.15);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .notice-card:hover {
+            transform: translateX(10px);
+            border-color: rgba(0, 195, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 195, 255, 0.2);
+        }
+
+        /* 도전 과제 섹션 */
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .challenge-card {
+            background: rgba(20, 25, 35, 0.7);
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 195, 255, 0.3);
+        }
+
+        /* 난이도 배지 */
+        .difficulty {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .difficulty.easy {
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: #00ff00;
+        }
+
+        .difficulty.normal {
+            background: rgba(255, 165, 0, 0.2);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            color: #ffa500;
+        }
+
+        .difficulty.hard {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff0000;
+        }
+
+        /* 랭커 섹션 */
+        .ranker-card {
+            background: rgba(20, 25, 35, 0.8);
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .ranker-card.first {
+            background: linear-gradient(45deg, rgba(20, 25, 35, 0.9), rgba(0, 195, 255, 0.1));
+            border-color: rgba(0, 195, 255, 0.4);
+        }
+
+        /* 아이콘 스타일 */
+        .material-symbols-outlined {
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            color: #00c3ff;
+        }
+
+        /* 섹션 타이틀 공통 스타일 */
+        .section-title {
+            font-size: 1.8rem;
+            color: #00c3ff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(0, 195, 255, 0.2);
+            text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+        }
+
+        /* 챌린지 타입 배지 */
+        .challenge-type {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .challenge-type.web {
+            background: rgba(0, 150, 255, 0.2);
+            border: 1px solid rgba(0, 150, 255, 0.3);
+            color: #0096ff;
+        }
+
+        .challenge-type.pwn {
+            background: rgba(255, 0, 150, 0.2);
+            border: 1px solid rgba(255, 0, 150, 0.3);
+            color: #ff0096;
+        }
+
+        .challenge-type.crypto {
+            background: rgba(150, 255, 0, 0.2);
+            border: 1px solid rgba(150, 255, 0, 0.3);
+            color: #96ff00;
+        }
+
+        /* 포인트 표시 */
+        .points {
+            color: #00c3ff;
+            font-weight: 500;
+        }
+
+        /* 활동 카드 아이콘 */
+        .activity-card .material-symbols-outlined {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        /* 문제 리스트 컨테이너 */
+        .problem-list-container {
+            padding: 20px;
+        }
+
+        /* 문제 카드 스타일링 */
+        .problem-card {
+            background: rgba(13, 17, 23, 0.7);
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 195, 255, 0.6);
+            box-shadow:
+                0 0 20px rgba(0, 195, 255, 0.2),
+                inset 0 0 10px rgba(0, 195, 255, 0.1);
+        }
+
+        /* 문제 제목 */
+        .problem-card .card-title {
+            color: #00c3ff;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+        }
+
+        /* 문제 박스의 배지 스타일 (기존 스타일 수정) */
+        .challenge-badge {
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        /* 난이도별 배지 스타일 */
+        .challenge-badge.difficulty-easy {
+            background: rgba(0, 255, 0, 0.15);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: #00ff00;
+        }
+
+        .challenge-badge.difficulty-normal {
+            background: rgba(255, 165, 0, 0.15);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            color: #ffa500;
+        }
+
+        .challenge-badge.difficulty-hard {
+            background: rgba(255, 0, 0, 0.15);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff0000;
+        }
+
+        /* 점수 배지 스타일 */
+        .challenge-badge.points {
+            background: rgba(0, 195, 255, 0.15);
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            color: #00c3ff;
+        }
+
+        /* 해결 수 배지 스타일 */
+        .challenge-badge.solves {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+
+
+
+        /* 문제 정보 배지 */
+        .problem-badge {
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .problem-badge.type {
+            background: rgba(0, 195, 255, 0.15);
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            color: #00c3ff;
+        }
+
+        .problem-badge.difficulty-easy {
+            background: rgba(0, 255, 0, 0.15);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: #00ff00;
+        }
+
+        .problem-badge.difficulty-normal {
+            background: rgba(255, 165, 0, 0.15);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            color: #ffa500;
+        }
+
+        .problem-badge.difficulty-hard {
+            background: rgba(255, 0, 0, 0.15);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff0000;
+        }
+
+        /* 점수 표시 */
+        .problem-points {
+            font-size: 1.2rem;
+            color: #00c3ff;
+            text-shadow: 0 0 5px rgba(0, 195, 255, 0.5);
+        }
+
+        /* 문제 링크 */
+        .problem-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .problem-link:hover {
+            color: inherit;
+        }
+
+        /* 레이저 라인 효과 */
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    #00c3ff 20%,
+                    #00c3ff 40%,
+                    transparent 60%);
+            animation: laserLine 3s infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .problem-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes laserLine {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+
+        }
+
+        .neon {
+            color: var(--neon-blue) !important;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: flicker 3s infinite;
+        }
+
+
+        /* 깜빡임 애니메이션 */
+        @keyframes flicker {
+
+            0%,
+            19.999%,
+            22%,
+            62.999%,
+            64%,
+            64.999%,
+            70%,
+            100% {
+                opacity: 1;
+                text-shadow: 0 0 10px var(--neon-blue),
+                    0 0 20px var(--neon-blue),
+                    0 0 40px var(--neon-blue);
+            }
+
+            20%,
+            21.999%,
+            63%,
+            63.999%,
+            65%,
+            69.999% {
+                opacity: 0.4;
+                text-shadow: none;
+            }
+        }
+
+        /* B5 진행도 바 설정 수정 */
+        .progress {
+            height: 25px;
+            /* 프로그레스 바 높이 조정 */
+            background-color: rgba(0, 195, 255, 0.1);
+        }
+
+        .progress span {
+            z-index: 2;
+            /* 텍스트가 프로그레스 바 위에 표시되도록 */
+            color: rgba(0, 195, 255, 1);
+            /* 텍스트 색상 */
+        }
+
+        .custom-progress-bar {
+            z-index: 1;
+        }
+
+
+        /* 스코어보드 컨테이너 */
+        .scoreboard-container {
+            padding: 2rem;
+            background: rgba(13, 17, 23, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 195, 255, 0.1);
+        }
+
+        /* 스코어보드 제목 */
+        .scoreboard-title {
+            color: #00c3ff;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .scoreboard-title .material-symbols-outlined {
+            font-size: 2.5rem;
+        }
+
+        /* 테이블 컨테이너 */
+        .score-table-container {
+            overflow-x: auto;
+            border-radius: 10px;
+            background: rgba(20, 25, 35, 0.6);
+            padding: 1rem;
+            border: 1px solid rgba(0, 195, 255, 0.2);
+        }
+
+        /* 스코어보드 테이블 */
+        .score-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+
+        .score-table thead th {
+            padding: 1rem;
+            color: #00c3ff;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(0, 195, 255, 0.2);
+            text-align: center;
+        }
+
+        .score-table tbody tr {
+            background: rgba(13, 17, 23, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .score-table tbody tr:hover {
+            transform: translateY(-3px);
+            background: rgba(0, 195, 255, 0.1);
+            box-shadow:
+                0 5px 15px rgba(0, 195, 255, 0.2),
+                inset 0 0 15px rgba(0, 195, 255, 0.1);
+        }
+
+        .score-table td {
+            padding: 1rem;
+            color: #ffffff;
+            text-align: center;
+            border-top: 1px solid rgba(0, 195, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 195, 255, 0.1);
+        }
+
+        /* 순위 스타일 */
+        .score-table td:first-child {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00c3ff;
+            text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+        }
+
+        /* 상위 3위 특별 스타일 */
+        .score-table tr.rank-1 td:first-child {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .score-table tr.rank-2 td:first-child {
+            color: #c0c0c0;
+            text-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
+        }
+
+        .score-table tr.rank-3 td:first-child {
+            color: #cd7f32;
+            text-shadow: 0 0 10px rgba(205, 127, 50, 0.5);
+        }
+
+        /* 포인트 강조 */
+        .score-table td:nth-child(3) {
+            font-weight: bold;
+            color: #00c3ff;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .scoreboard-container {
+                padding: 1rem;
+            }
+
+            .score-table th,
+            .score-table td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .score-table th:nth-child(5),
+            .score-table td:nth-child(5) {
+                display: none;
+            }
+        }
+
+
+
+
+        /* 채팅창 스타일 --------------------------------------------------------------- */
+        .chat-container {
+            position: fixed;
+            right: 35px;
+            top: 80px;
+            width: 300px;
+            height: 400px;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 195, 255, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .chat-header {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(0, 195, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            color: #fff;
+        }
+
+        .chat-input-container {
+            padding: 10px;
+            border-top: 1px solid rgba(0, 195, 255, 0.2);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex-grow: 1;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 195, 255, 0.3);
+            border-radius: 20px;
+            background: rgba(20, 25, 35, 0.7);
+            color: #fff;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: rgba(0, 195, 255, 0.6);
+            box-shadow: 0 0 10px rgba(0, 195, 255, 0.2);
+        }
+
+        .chat-send-btn {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(0, 195, 255, 0.2);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chat-send-btn:hover {
+            background: rgba(0, 195, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .chat-send-btn .material-symbols-outlined {
+            font-size: 20px;
+        }
+
+        /* 채팅 컨테이너에 스크롤바 스타일링 추가 */
+        #chat-messages {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 195, 255, 0.2) transparent;
+        }
+
+        #chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #chat-messages::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 195, 255, 0.2);
+            border-radius: 3px;
+        }
+
+        /* 채팅 수신 메시지 출력 css --------------------------------------------------------------- */
+        .chat-output-box {
+            display: flex;
+            justify-content: flex-start;
+            border-bottom: 1px solid rgba(0, 195, 255, 0.2);
+            padding: 5px 0;
+        }
+
+        .chat-user-box {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chat-nickname {
+            font-weight: bold;
+        }
+
+        .chat-point {
+            color: #00c3ff;
+            font-size: 0.8rem;
+        }
+
+        .chat-message {
+            margin-left: 10px;
+            color: #fff;
+        }
+
+
+        /* ----------------------------------------------------------------------------------------------- */

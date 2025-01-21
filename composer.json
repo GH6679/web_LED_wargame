@@ -1,0 +1,6 @@
+{
+    "require": {
+        "firebase/php-jwt": "*",
+        "cboden/ratchet": "^0.4.4"
+    }
+}

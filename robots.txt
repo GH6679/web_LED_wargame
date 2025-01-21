@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /joon/Q6/ledteam/
+Disallow: /joon/
