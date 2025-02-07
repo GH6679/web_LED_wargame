@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- There is no logic or hints in the header. -->
+    <link rel="stylesheet" href="css/level29.css">
+</head>
+
+
+<body>
+
+    <div class="send-container">
+        <h1 class="neon-title">Level 29</h1>
+        <form id="send-form" method="POST">
+            <span>if send 'YES' *Exactly 500 times* then you can see the key</span>
+            <div class="mb-3">
+                <input type="hidden" class="form-control" id="hiddenvalue" name="hiddenvalue" value="NO" required>
+            </div>
+            <button type="button" class="btn btn-primary" id="send-btn">NO</button>
+        </form>
+    </div>
+
+    <!-- Alert Modal -->
+    <div class="modal fade" id="alert-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title" id="alert-modal-title"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="alert-modal-body">
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        id="alert-modal-end">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/level29.js"></script>
+
+</body>
+
+</html>

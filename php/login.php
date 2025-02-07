@@ -46,7 +46,7 @@ try {
 
     if ($result_login->num_rows > 0) {
 
-        $sql_userdata = "SELECT u_point,email,nickname,user_role,u_id FROM users WHERE username='$username'";
+        $sql_userdata = "SELECT email,nickname,user_role,u_id FROM users WHERE username='$username'";
         $result_userdata = $conn->query($sql_userdata);
 
         $u_point = "";

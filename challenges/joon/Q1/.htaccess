@@ -1,0 +1,16 @@
+Options -Indexes
+
+# 기본적으로 모든 접근 차단
+<Files *>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# 허용할 파일 패턴 지정
+<FilesMatch "\.(html|php|js|css)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# 디렉토리 리스팅 차단시 보여줄 메시지
+ErrorDocument 403 "<html><head><meta charset='UTF-8'><title>&#9888; Access Denied</title></head><body style='background:#0a0a1f;color:#00f3ff;font-family:monospace;display:flex;justify-content:center;align-items:center;height:100vh;margin:0'><div style='text-align:center;border:1px solid #00f3ff;padding:20px;box-shadow:0 0 10px rgba(0,243,255,0.3)'><h1>&#9888; Access Denied</h1><p>Directory access is not allowed.</p></div></body></html>"

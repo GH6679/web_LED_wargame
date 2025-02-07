@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED TEAM 워게임 - Mission #1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ff;
+            --dark-bg: #0a0a0f;
+            --terminal-green: #33FF00;
+            --terminal-error: #FF0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%),
+                url('../images/cyber-bg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .cyber-header {
+            background: linear-gradient(45deg, #ff00ff22, #00f3ff22);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0,243,255,0.3);
+        }
+
+        .cyber-title {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 5px var(--neon-blue),
+                0 0 10px var(--neon-blue),
+                0 0 15px var(--neon-pink);
+            letter-spacing: 3px;
+        }
+
+        .cyber-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .main-terminal {
+            background: rgba(0,0,0,0.9);
+            border: 1px solid var(--neon-blue);
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,243,255,0.2);
+        }
+
+        .terminal-header {
+            padding: 10px;
+            background: rgba(0,0,0,0.8);
+            border-bottom: 1px solid var(--neon-blue);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .terminal-controls span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .control.red { background: #ff5f56; }
+        .control.yellow { background: #ffbd2e; }
+        .control.green { background: #27c93f; }
+
+        .terminal-body {
+            padding: 20px;
+            height: 500px;
+            overflow-y: auto;
+            font-family: 'Source Code Pro', monospace;
+            color: var(--terminal-green);
+        }
+
+        .ascii-art {
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre;
+        }
+
+        .mission-info {
+            border: 1px solid var(--neon-blue);
+            padding: 15px;
+            margin: 20px 0;
+            background: rgba(0,243,255,0.05);
+        }
+
+        .conditions {
+            margin-top: 15px;
+        }
+
+        .conditions h3 {
+            margin-bottom: 10px;
+            color: var(--neon-blue);
+        }
+
+        .conditions ol {
+            padding-left: 20px;
+        }
+
+        .conditions li {
+            margin: 5px 0;
+        }
+
+        .command-line {
+            display: flex;
+            margin: 10px 0;
+        }
+
+        .prompt {
+            color: var(--neon-blue);
+            margin-right: 10px;
+        }
+
+        .terminal-input {
+            background: transparent;
+            border: none;
+            color: var(--terminal-green);
+            width: 100%;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .output {
+            margin: 10px 0;
+            padding-left: 20px;
+            color: var(--terminal-green);
+            white-space: pre-wrap;
+        }
+
+        .error {
+            color: var(--terminal-error);
+        }
+
+        #command-history {
+            margin-bottom: 20px;
+        }
+
+        .logo-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--neon-blue);
+            border-radius: 5px;
+            box-shadow: 
+                0 0 10px rgba(0, 243, 255, 0.2),
+                inset 0 0 15px rgba(0, 243, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .team-logo {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 0 5px var(--neon-blue));
+            transition: all 0.3s ease;
+        }
+
+        .logo-container:hover .team-logo {
+            filter: drop-shadow(0 0 8px var(--neon-blue)) 
+                   drop-shadow(0 0 12px var(--neon-pink));
+            transform: scale(1.02);
+        }
+
+        .logo-glitch-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(0, 243, 255, 0.1) 50%,
+                transparent 100%
+            );
+            animation: glitch-scan 3s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes glitch-scan {
+            0% {
+                transform: translateX(-100%) skewX(-45deg);
+            }
+            50% {
+                transform: translateX(100%) skewX(-45deg);
+            }
+            50.1% {
+                transform: translateX(-100%) skewX(-45deg);
+            }
+            100% {
+                transform: translateX(100%) skewX(-45deg);
+            }
+        }
+
+        /* 호버 효과 시 글리치 애니메이션 */
+        .logo-container:hover::before,
+        .logo-container:hover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            animation: glitch-effect 0.3s infinite;
+        }
+
+        .logo-container:hover::after {
+            animation-delay: 0.15s;
+        }
+
+        @keyframes glitch-effect {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-5px, 5px);
+            }
+            40% {
+                transform: translate(-5px, -5px);
+            }
+            60% {
+                transform: translate(5px, 5px);
+            }
+            80% {
+                transform: translate(5px, -5px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cyber-header">
+        <h1 class="cyber-title">MISSION #1: FILE SYSTEM INFILTRATION</h1>
+        <div class="team-signature">Created by LedTeam</div>
+    </header>
+
+    <div class="cyber-container">
+        <div class="cyber-card main-terminal">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <span class="control red"></span>
+                    <span class="control yellow"></span>
+                    <span class="control green"></span>
+                </div>
+                <div class="terminal-title">hacker@machine:~#</div>
+            </div>
+            
+            <div class="terminal-body">
+                <div class="logo-container">
+                    <img src="/assets/images/LEDTEAM_로고.jpg" alt="LEDTEAM LOGO" class="team-logo">
+                    <div class="logo-glitch-effect"></div>
+                </div>
+
+                <div class="mission-info">
+                    <h3>[ MISSION BRIEFING ]</h3>
+                    <p>시스템에 침투한 해커가 중요한 정보를 숨겨두었습니다.</p>
+                    <p>숨겨진 파일을 찾아 내용을 확인하세요.</p>
+                    
+                    <div class="conditions">
+                        <h3>[ CONDITIONS ]</h3>
+                        <ol>
+                            <li>파일은 'secret_' 접두어로 시작합니다.</li>
+                            <li>파일 크기는 정확히 777바이트입니다.</li>
+                            <li>파일은 .enc 확장자를 가집니다.</li>
+                            <li>파일은 깊숙히 숨겨져 있습니다.</li>
+                            <li>find 명령어의 -type과 -size 옵션을 활용하세요.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div id="command-history"></div>
+                <div class="command-line">
+                    <span class="prompt">ledteam@machine:~$</span>
+                    <input type="text" class="terminal-input" id="command-input" autofocus>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const validCommands = ['ls', 'cd', 'pwd', 'find', 'cat', 'help', 'clear'];
+        let currentPath = '/home';
+
+        // 파일 시스템 구조
+        const fileSystem = {
+            '/': {
+                type: 'dir',
+                contents: {
+                    'home': {
+                        type: 'dir',
+                        contents: {
+                            'ledteamfind1': {
+                                type: 'dir',
+                                contents: generateHints(1)
+                            },
+                            'ledteamfind2': {
+                                type: 'dir',
+                                contents: generateHints(2)
+                            },
+                            'ledteamfind3': {
+                                type: 'dir',
+                                contents: {
+                                    ...generateHints(3),
+                                    'secret_password.enc': {
+                                        type: 'file',
+                                        content: 'wTLwstcyzoiNIAbYgW84TtN6ozEP4x\n\n축하합니다! 비밀 파일을 찾았습니다.',
+                                        size: 777
+                                    }
+                                }
+                            },
+                            'ledteamfind4': {
+                                type: 'dir',
+                                contents: generateHints(4)
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // 힌트 파일 생성 함수
+        function generateHints(dirNum) {
+            const hints = {};
+            const hintMessages = [
+                "다른 디렉토리를 확인해보세요.",
+                "secret_로 시작하는 파일을 찾아보세요.",
+                "777바이트 크기의 파일이 중요할 수 있습니다.",
+                ".enc 확장자를 가진 파일을 찾아보세요.",
+                "find 명령어의 -type과 -size 옵션을 활용하세요."
+            ];
+
+            for (let i = 1; i <= 30; i++) {
+                const randomHint = hintMessages[Math.floor(Math.random() * hintMessages.length)];
+                hints[`hint${i}.txt`] = {
+                    type: 'file',
+                    content: `힌트 ${i}: ${randomHint}\n\n디렉토리 ${dirNum}의 힌트입니다.`,
+                    size: 100
+                };
+                
+                if (i % 5 === 0) {
+                    hints[`dummy${i}.dat`] = {
+                        type: 'file',
+                        content: `더미 데이터 파일 ${i}\n크기: 777바이트\n이 파일은 테스트용 더미 파일입니다.`,
+                        size: 777
+                    };
+                }
+            }
+            return hints;
+        }
+
+        // 파일 시스템 탐색 함수
+        function getItemFromPath(path) {
+            if (!path) return null;
+            
+            // 상대 경로를 절대 경로로 변환
+            const absolutePath = path.startsWith('/') ? path : `${currentPath}/${path}`;
+            const parts = absolutePath.split('/').filter(Boolean);
+            
+            let current = fileSystem['/'];
+            for (const part of parts) {
+                if (!current || !current.contents || !current.contents[part]) {
+                    return null;
+                }
+                current = current.contents[part];
+            }
+            return current;
+        }
+
+        // 파일 검색 함수
+        function findFiles(startPath, options = {}) {
+            const results = [];
+            
+            function traverse(currentPath, item) {
+                if (!item || !item.contents) return;
+                
+                for (const [name, child] of Object.entries(item.contents)) {
+                    const fullPath = `${currentPath}/${name}`;
+                    
+                    if (options.type && options.type === 'f' && child.type === 'file') {
+                        if (options.size && child.size === options.size) {
+                            results.push(fullPath);
+                        }
+                        else if (!options.size) {
+                            results.push(fullPath);
+                        }
+                    }
+                    
+                    if (child.type === 'dir') {
+                        traverse(fullPath, child);
+                    }
+                }
+            }
+            
+            traverse(startPath, getItemFromPath(startPath));
+            return results;
+        }
+
+        // 명령어 실행 함수
+        function executeCommand(command) {
+            const args = command.trim().split(/\s+/);
+            const cmd = args[0];
+
+            if (!validCommands.includes(cmd)) {
+                return '알 수 없는 명령어입니다. help를 입력하여 사용 가능한 명령어를 확인하세요.';
+            }
+
+            switch(cmd) {
+                case 'pwd':
+                    return currentPath;
+
+                case 'ls':
+                    const showHidden = args.includes('-a');
+                    const contents = getDirectoryContents(currentPath);
+                    if (!contents) return '디렉토리를 읽을 수 없습니다.';
+
+                    let output = [];
+                    for (const [name, item] of Object.entries(contents)) {
+                        if (showHidden || !name.startsWith('.')) {
+                            if (item.type === 'dir') {
+                                output.push(name + '/');
+                            } else {
+                                output.push(name);
+                            }
+                        }
+                    }
+                    return output.sort().join('  ');
+
+                case 'cd':
+                    if (!args[1] || args[1] === '~') {
+                        currentPath = '/home';
+                        return '';
+                    }
+
+                    const newPath = resolvePath(args[1]);
+                    const targetDir = getItemFromPath(newPath);
+
+                    if (!targetDir || targetDir.type !== 'dir') {
+                        return `cd: ${args[1]}: 그런 파일이나 디렉터리가 없습니다`;
+                    }
+
+                    currentPath = newPath;
+                    return '';
+
+                case 'find':
+                    if (args.length < 2) {
+                        return 'Usage: find [path] [options]';
+                    }
+
+                    const options = {};
+
+                    for (let i = 2; i < args.length; i++) {
+                        if (args[i] === '-type') {
+                            options.type = args[i + 1];
+                            i++;
+                        } else if (args[i] === '-size') {
+                            const sizeArg = args[i + 1];
+                            options.size = parseInt(sizeArg);
+                            i++;
+                        } else if (args[i] === '-name') {
+                            options.name = args[i + 1].replace(/"/g, '');
+                            i++;
+                        }
+                    }
+
+                    const searchResults = findFiles(args[1], options);
+
+                    if (searchResults.length === 0) {
+                        return '파일을 찾을 수 없습니다.';
+                    }
+
+                    return searchResults.sort().map(path => {
+                        const file = getItemFromPath(path);
+                        return `${path}\t(size: ${file.size} bytes)`;
+                    }).join('\n');
+
+                case 'cat':
+                    const file = getItemFromPath(args[1]);
+                    if (file && file.type === 'file') {
+                        return file.content;
+                    }
+                    return '파일을 찾을 수 없습니다.';
+
+                case 'help':
+                    return `사용 가능한 명령어:
+- pwd: 현재 디렉토리 확인
+- ls: 파일 목록 확인 (ls -a: 숨겨진 파일 포함)
+- cd: 디렉토리 이동 (cd ..: 상위 디렉터리)
+- find: 파일 검색
+- cat: 파일 내용 확인
+- help: 도움말 표시
+- clear: 화면 지우기`;
+
+                case 'clear':
+                    document.getElementById('command-history').innerHTML = '';
+                    return '';
+            }
+        }
+
+        // 경로 처리 함수
+        function resolvePath(path) {
+            if (path.startsWith('/')) {
+                return path;
+            }
+            if (path === '..') {
+                const parts = currentPath.split('/').filter(Boolean);
+                parts.pop();
+                return '/' + parts.join('/');
+            }
+            return `${currentPath}/${path}`;
+        }
+
+        // 디렉토리 내용 가져오기 함수
+        function getDirectoryContents(path) {
+            const item = getItemFromPath(path);
+            if (!item || item.type !== 'dir') return null;
+            return item.contents;
+        }
+
+        // 명령어 입력 처리
+        document.getElementById('command-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value;
+                const history = document.getElementById('command-history');
+
+                history.innerHTML += `<div class="command-line">
+                    <span class="prompt">${updatePrompt()}</span>
+                    <span>${command}</span>
+                </div>`;
+
+                const output = executeCommand(command);
+                if (output) {
+                    history.innerHTML += `<div class="output">${output}</div>`;
+                }
+
+                this.value = '';
+                this.scrollIntoView();
+            }
+        });
+
+        // 프롬프트 업데이트 함수
+        function updatePrompt() {
+            return `ledteam@machine:${currentPath}$ `;
+        }
+    </script>
+</body>
+</html>

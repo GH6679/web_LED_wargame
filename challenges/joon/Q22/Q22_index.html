@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedTeam Mission #25 - GraphQL API 취약점</title>
+    <link rel="stylesheet" href="Q22_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Source+Code+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="cyber-header">
+        <h1 class="cyber-title">MISSION #25: GraphQL API 취약점</h1>
+        <div class="team-signature">Created by LedTeam</div>
+    </header>
+
+    <div class="cyber-container">
+        <div class="graphql-editor">
+            <div class="editor-header">
+                <div class="editor-controls">
+                    <span class="control-btn control-red"></span>
+                    <span class="control-btn control-yellow"></span>
+                    <span class="control-btn control-green"></span>
+                </div>
+                <div class="editor-title">GraphQL Query Editor</div>
+            </div>
+            <div class="editor-body">
+                <div class="query-editor">
+                    <textarea id="queryInput" spellcheck="false" placeholder="# GraphQL 쿼리를 입력하세요...">query {
+    me {
+        username
+        email
+        role
+    }
+}</textarea>
+                </div>
+                <button class="execute-btn" onclick="executeQuery()">Execute Query</button>
+                <div class="result-viewer">
+                    <pre id="queryResult">// Query results will appear here...</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="docs-panel">
+            <h2 class="docs-title">API 문서</h2>
+            <div class="docs-content">
+                <p>사용 가능한 쿼리:</p>
+                <ul>
+                    <li>me: 현재 사용자 정보</li>
+                    <li>friends: 친구 목록</li>
+                </ul>
+
+                <!-- 힌트 1: 기본 쿼리 -->
+                <button class="hint-btn" onclick="toggleHint('hint-1')">힌트 #1: 기본 쿼리 구조</button>
+                <div id="hint-1" class="hint-content">
+                    <p>GraphQL에서는 다음과 같이 쿼리를 작성할 수 있습니다:</p>
+                    <pre>query {
+  me {
+    username
+    email
+    role
+  }
+}</pre>
+                </div>
+
+                <!-- 힌트 2: 스키마 확인 -->
+                <button class="hint-btn" onclick="toggleHint('hint-2')">힌트 #2: API 구조 확인</button>
+                <div id="hint-2" class="hint-content">
+                    <p>GraphQL의 스키마를 확인하려면 다음 쿼리를 사용하세요:</p>
+                    <pre>query {
+  __schema {
+    types {
+      name
+      fields {
+        name
+        description
+      }
+    }
+  }
+}</pre>
+                </div>
+
+                <!-- 힌트 3: 친구 관계 -->
+                <button class="hint-btn" onclick="toggleHint('hint-3')">힌트 #3: 친구 정보 확인</button>
+                <div id="hint-3" class="hint-content">
+                    <p>friends 필드를 통해 친구들의 정보를 조회할 수 있습니다:</p>
+                    <pre>query {
+  me {
+    friends {
+      username
+      email
+      role
+    }
+  }
+}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function executeQuery() {
+            const query = document.getElementById('queryInput').value;
+            const resultElement = document.getElementById('queryResult');
+            
+            try {
+                resultElement.textContent = "Executing query...";
+                resultElement.style.color = '#888';
+                
+                const response = await fetch('Q22_api.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query })
+                });
+                
+                const result = await response.json();
+                resultElement.textContent = JSON.stringify(result, null, 2);
+                resultElement.style.color = '#00ff00';
+                
+            } catch (error) {
+                resultElement.textContent = 'Error: ' + error.message;
+                resultElement.style.color = '#ff00ff';
+            }
+        }
+
+        // 초기 쿼리 실행
+        window.onload = executeQuery;
+
+        function toggleHint(hintId) {
+            const hintElement = document.getElementById(hintId);
+            const isVisible = hintElement.classList.contains('show');
+            
+            // 모든 힌트 숨기기
+            document.querySelectorAll('.hint-content').forEach(hint => {
+                hint.classList.remove('show');
+            });
+            
+            // 클릭한 힌트 토글
+            if (!isVisible) {
+                hintElement.classList.add('show');
+            }
+        }
+
+        // 페이지 로드 시 모든 힌트 숨기기
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.hint-content').forEach(hint => {
+                hint.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html> 

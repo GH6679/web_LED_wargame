@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이버시티 워게임 - Mission #24</title>
+    <link rel="stylesheet" href="21_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Source+Code+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="cyber-header">
+        <h1 class="cyber-title glitch-text">MISSION #24: 파일 시스템 침투</h1>
+        <div class="team-signature">Created by LedTeam</div>
+    </header>
+
+    <div class="cyber-container">
+        <div class="cyber-card main-terminal">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <span class="control red"></span>
+                    <span class="control yellow"></span>
+                    <span class="control green"></span>
+                </div>
+                <div class="terminal-title">root@cybercity:~#</div>
+            </div>
+            
+            <div class="terminal-body">
+                <form method="GET" action="21_download.php">
+                    <div class="input-line">
+                        <span class="prompt">$</span>
+                        <input type="text" name="file" class="terminal-input" 
+                               placeholder="Enter file path..." autocomplete="off">
+                    </div>
+                </form>
+            </div>
+
+            <div class="file-explorer">
+                <div class="explorer-header">
+                    <h3>[ 공개 파일 시스템 ]</h3>
+                </div>
+                <div class="explorer-body">
+                    <ul class="file-tree">
+                        <li class="directory">
+                            <span class="folder-icon">📁</span> docs/
+                            <ul>
+                                <li class="file"><span class="file-icon">📄</span> public1.txt</li>
+                                <li class="file"><span class="file-icon">📄</span> public2.txt</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="output-screen">
+                <div class="screen-header">
+                    <span>// OUTPUT MONITOR //</span>
+                </div>
+                <div id="output" class="screen-content">
+                    > Awaiting file path input...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-bar">
+        <div class="status-item">SYSTEM: ONLINE</div>
+        <div class="status-item">SECURITY: BREACHED</div>
+        <div class="status-item blink">MISSION: ACTIVE</div>
+    </div>
+</body>
+</html> 

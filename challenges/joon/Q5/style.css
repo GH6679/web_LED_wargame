@@ -1,0 +1,428 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --neon-green: #00ff00;
+    --dark-bg: #0a0a1f;
+    --panel-bg: rgba(10, 10, 31, 0.8);
+    --grid-color: rgba(0, 243, 255, 0.1);
+    --console-bg: rgba(0, 0, 0, 0.7);
+    --error-red: #ff0043;
+    --success-green: #00ff9f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: #fff;
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.cyber-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(transparent 50%, rgba(0, 243, 255, 0.1) 100%);
+    animation: gridScan 8s linear infinite;
+}
+
+.cyber-header {
+    background: linear-gradient(45deg, rgba(255, 0, 255, 0.1), rgba(0, 243, 255, 0.1));
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--neon-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-title {
+    font-size: 3em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-blue);
+    position: relative;
+}
+
+.glitch-container {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 0, 0, 0);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--neon-pink);
+    animation: glitch-1 2s linear infinite alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: 2px 0 var(--neon-blue);
+    animation: glitch-2 3s linear infinite alternate-reverse;
+}
+
+.header-status {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.status-item {
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.status-item.blink {
+    animation: blink 1s infinite;
+}
+
+.cyber-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.terminal-panel, .info-panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.panel-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--neon-blue);
+}
+
+.controls {
+    display: flex;
+    gap: 5px;
+    margin-right: 15px;
+}
+
+.ctrl-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.ctrl-btn.red { background: var(--error-red); }
+.ctrl-btn.yellow { background: #ffbd2e; }
+.ctrl-btn.green { background: var(--success-green); }
+
+.panel-title {
+    color: var(--neon-blue);
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+.terminal-content {
+    padding: 20px;
+    min-height: 400px;
+    max-height: 600px;
+    overflow-y: auto;
+    background: var(--console-bg);
+    font-family: 'Share Tech Mono', monospace;
+    line-height: 1.5;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.prompt {
+    color: var(--neon-green);
+    margin-right: 10px;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
+    flex-grow: 1;
+    outline: none;
+    caret-color: var(--neon-green);
+}
+
+.info-content {
+    padding: 20px;
+}
+
+.target-info h3,
+.mission-hint h3 {
+    color: var(--neon-pink);
+    margin-bottom: 15px;
+}
+
+.target-info ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.target-info li {
+    margin-bottom: 8px;
+    color: var(--neon-blue);
+}
+
+.mission-hint p {
+    color: var(--neon-green);
+    margin-bottom: 10px;
+}
+
+.mission-hint code {
+    display: block;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 3px solid var(--neon-pink);
+    color: var(--neon-blue);
+}
+
+.cyber-footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--neon-blue);
+    margin-top: 50px;
+}
+
+.team-signature {
+    color: var(--neon-blue);
+    margin-bottom: 10px;
+}
+
+.footer-warning {
+    color: var(--error-red);
+    font-size: 0.9em;
+}
+
+/* Animations */
+@keyframes gridScan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes glitch-1 {
+    0% { clip-path: inset(20% 0 80% 0); }
+    20% { clip-path: inset(60% 0 40% 0); }
+    40% { clip-path: inset(40% 0 60% 0); }
+    60% { clip-path: inset(80% 0 20% 0); }
+    80% { clip-path: inset(30% 0 70% 0); }
+    100% { clip-path: inset(70% 0 30% 0); }
+}
+
+@keyframes glitch-2 {
+    0% { clip-path: inset(10% 0 60% 0); }
+    20% { clip-path: inset(30% 0 20% 0); }
+    40% { clip-path: inset(70% 0 10% 0); }
+    60% { clip-path: inset(20% 0 50% 0); }
+    80% { clip-path: inset(50% 0 30% 0); }
+    100% { clip-path: inset(40% 0 40% 0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .cyber-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .cyber-title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-status {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cyber-title {
+        font-size: 1.5em;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-blue);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-pink);
+}
+
+/* 기존 스타일에 추가 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background: var(--panel-bg);
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+    animation: modalAppear 0.3s ease-out;
+}
+
+.modal-header {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-bottom: 1px solid var(--neon-blue);
+}
+
+.modal-header h3 {
+    color: var(--neon-blue);
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.password-input-container {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#passwordInput {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-green);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+}
+
+.cyber-scanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--neon-blue);
+    animation: scan 2s linear infinite;
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.connection-status {
+    color: var(--neon-green);
+    font-size: 14px;
+}
+
+.status-line {
+    margin: 8px 0;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes modalAppear {
+    from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+/* 성공/실패 메시지 스타일 */
+.success-message {
+    color: var(--success-green);
+    text-shadow: 0 0 10px var(--success-green);
+    text-align: center;
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.error-message {
+    color: var(--error-red);
+    text-shadow: 0 0 10px var(--error-red);
+    text-align: center;
+    font-size: 1.2em;
+    margin: 20px 0;
+} 

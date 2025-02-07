@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedTeam Mission #5 - NC Script Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    
+    <header class="cyber-header">
+        <div class="glitch-container">
+            <h1 class="cyber-title glitch" data-text="MISSION #5: NC SCRIPT CHALLENGE">MISSION #5: NC SCRIPT CHALLENGE</h1>
+        </div>
+        <div class="header-status">
+            <div class="status-item">SYSTEM: ACTIVE</div>
+            <div class="status-item">SECURITY: COMPROMISED</div>
+            <div class="status-item blink">STATUS: CONNECTING...</div>
+        </div>
+    </header>
+
+    <main class="cyber-container">
+        <div class="terminal-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">TERMINAL</span>
+            </div>
+            <div class="terminal-content">
+                <div id="output"></div>
+                <div class="input-line">
+                    <span class="prompt">ledteam5@machine:/home/ledteam5$</span>
+                    <input type="text" id="userInput" class="terminal-input" autofocus spellcheck="false">
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">MISSION BRIEFING</span>
+            </div>
+            <div class="info-content">
+                <div class="target-info">
+                    <h3>TARGET INFORMATION</h3>
+                    <ul>
+                        <li>📡 Server Port: 30000</li>
+                        <li>🔑 Required Password: VFBYVVpQYUlpeXNlNzAyNnB1R0U0Z0NBVDJnbk9t</li>
+                        <li>📝 Goal: Get ledteam6's password</li>
+                        <li>⚠️ Note: Server requires 3 successful attempts</li>
+                    </ul>
+                </div>
+                <div class="mission-hint">
+                    <h3>CONNECTION GUIDE</h3>
+                    <p>NC Command Format:</p>
+                    <code>ZWNobyAiUEFTU1dPUkQiIHwgbmMgbG9jYWxob3N0IDMwMDAw</code>
+                    <p class="hint-note">* Hint: You might need to try multiple times...</p>
+                    <p class="hint-note">* Try creating a script for automation!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="cyber-footer">
+        <div class="team-signature">Created by LedTeam</div>
+        <div class="footer-warning">UNAUTHORIZED ACCESS IS PROHIBITED</div>
+    </footer>
+
+    <div id="passwordModal" class="modal">
+        <div class="modal-content cyber-panel">
+            <div class="modal-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <h3>보안 연결 필요</h3>
+            </div>
+            <div class="modal-body">
+                <div class="password-input-container">
+                    <div class="cyber-scanner"></div>
+                    <input type="password" id="passwordInput" placeholder="접근 코드 입력" autocomplete="off">
+                </div>
+                <div class="connection-status">
+                    <div class="status-line">연결 상태: <span class="blink">대기중</span></div>
+                    <div class="status-line">대상: LEDTEAM6 시스템</div>
+                    <div class="status-line">포트: 30000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

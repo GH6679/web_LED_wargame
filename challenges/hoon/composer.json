@@ -1,0 +1,19 @@
+{
+    "name": "root/hoon",
+    "description": "JWP Challenge",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Root\\Hoon\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "skip"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "firebase/php-jwt": "^6.10"
+    }
+}

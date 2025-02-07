@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedTeam Mission #3 - Dash File Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    
+    <header class="cyber-header">
+        <div class="glitch-container">
+            <h1 class="cyber-title glitch" data-text="MISSION #3: DASH FILE CHALLENGE">MISSION #3: DASH FILE CHALLENGE</h1>
+        </div>
+        <div class="header-status">
+            <div class="status-item">SYSTEM: ACTIVE</div>
+            <div class="status-item">SECURITY: COMPROMISED</div>
+            <div class="status-item blink">STATUS: SEARCHING...</div>
+        </div>
+    </header>
+
+    <main class="cyber-container">
+        <div class="terminal-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">TERMINAL</span>
+            </div>
+            <div class="terminal-content">
+                <div id="output"></div>
+                <div class="input-line">
+                    <span class="prompt">ledteam@machine:/home/ledteam3$</span>
+                    <input type="text" id="userInput" class="terminal-input" autofocus spellcheck="false">
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">MISSION BRIEFING</span>
+            </div>
+            <div class="info-content">
+                <div class="target-info">
+                    <h3>대상 정보</h3>
+                    <ul>
+                        <li>📁 위치: /home/ledteam3/</li>
+                        <li>📄 대상 파일: --ledteam1.txt</li>
+                        <li>🎯 목표: 파일 내용 읽기</li>
+                        <li>⚠️ 주의: 일반적인 명령어로는 작동하지 않습니다</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="cyber-footer">
+        <div class="team-signature">Created by LedTeam</div>
+        <div class="footer-warning">UNAUTHORIZED ACCESS IS PROHIBITED</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 27 - Login</title>
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- There is no logic or hints in the header. -->
+    <link rel="stylesheet" href="css/level28.css">
+</head>
+
+<body id="body">
+    <!-- stop the css propagation... -->
+    <div id="main-container">
+        <div class="login-container">
+            <h1 class="neon-title">Level 28</h1>
+            <h3 class="neon-subtitle">need 3 click</h3>
+            <div id="click-count" class="neon-subtitle">0</div>
+            <form id="login-form" method="POST">
+                <input type="hidden" name="form-name" value="login-form">
+
+            </form>
+        </div>
+        <div type="submit" class="bth-key" id="key-btn">prinnt key</div>
+
+    </div>
+
+
+    <!-- Alert Modal -->
+    <div class="modal fade" id="alert-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title" id="alert-modal-title"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="alert-modal-body">
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        id="alert-modal-end">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/level28.js"></script>
+
+</body>
+
+</html>

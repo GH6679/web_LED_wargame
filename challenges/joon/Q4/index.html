@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedTeam Mission #4 - OpenSSL 복호화 도전</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    
+    <header class="cyber-header">
+        <div class="glitch-container">
+            <h1 class="cyber-title glitch" data-text="MISSION #4: OPENSSL 복호화">MISSION #4: OPENSSL 복호화</h1>
+        </div>
+        <div class="header-status">
+            <div class="status-item">시스템: 활성화</div>
+            <div class="status-item">보안: 손상됨</div>
+            <div class="status-item blink">상태: 복호화 중...</div>
+        </div>
+    </header>
+
+    <main class="cyber-container">
+        <div class="terminal-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">터미널</span>
+            </div>
+            <div class="terminal-content">
+                <div id="output"></div>
+                <div class="input-line">
+                    <span class="prompt">ledteam4@machine:/home/ledteam4$</span>
+                    <input type="text" id="userInput" class="terminal-input" autofocus spellcheck="false">
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">미션 브리핑</span>
+            </div>
+            <div class="info-content">
+                <div class="target-info">
+                    <h3>대상 정보</h3>
+                    <ul>
+                        <li>📁 위치: /home/ledteam4/</li>
+                        <li>📄 대상 파일: firdel_encrypted_f</li>
+                        <li>🔐 암호화: AES-256-CBC</li>
+                        <li>🎯 목표: 파일을 복호화하여 ledteam5의 비밀번호 획득</li>
+                    </ul>
+                </div>
+                <div class="mission-hint">
+                    <h3>복호화 가이드</h3>
+                    <p>OpenSSL 명령어 형식:</p>
+                    <p class="hint-note">* 힌트: 키가 눈앞에 있을지도 모릅니다...</p>
+                    <p class="hint-note">* 이름을 뒤집어 보세요!</p>
+                    <p class="hint-note">* 이 페이지에서 정해놓은 정확한 틀의 명령문이 아니면 풀지 못합니다.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="cyber-footer">
+        <div class="team-signature">Created by LedTeam</div>
+        <div class="footer-warning">무단 접근 금지</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
+<!-- 
+    b3BlbnNzbCBlbmMgLWQgLWFlcy0yNTYtY2JjIC1zYWx0IC1pbiBb7YyM7J28XSAtb3V0IFvstpzroKVd7YyM7J28XSAtayBb7YKkXSAtcGJrZGYyIC1pdGVyIDEwMDAw
+--> 

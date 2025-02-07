@@ -1,4 +1,4 @@
-<?php 
+<?php
 // 총 문제수를 불러오는 php
 
 include './../db/maindb.php';
@@ -12,20 +12,24 @@ $row = $result->fetch_assoc();
 $sql_u = "SELECT COUNT(*) as u_count FROM users";
 $result_u = $conn->query($sql_u);
 $row_u = $result_u->fetch_assoc();
-// 전체 문제 횟수
+// 전체 문제 수
 $data['Ccount'] = $row['COUNT(*)'];
 // 전체 점수
 $data['Tpoint'] = $row['SUM(c_point)'];
-// 쉬움 문제 횟수
+// 쉬움 문제 수
 $data['Ecount'] = $row['Ecount'];
-// 보통 문제 횟수
+// 보통 문제 수
 $data['Ncount'] = $row['Ncount'];
-// 어려움 문제 횟수
+// 어려움 문제 수
 $data['Hcount'] = $row['Hcount'];
 // 전체 유저 수
 $data['Ucount'] = $row_u['u_count'];
-// 전체 해결 횟수
-$data['Tsolves'] = $row['Tsolves'];
+// 전체 풀이 수
+if ($row['Tsolves'] == null) {
+    $data['Tsolves'] = 0;
+} else {
+    $data['Tsolves'] = $row['Tsolves'];
+}
 return $data;
 
 ?>

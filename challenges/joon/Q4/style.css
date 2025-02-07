@@ -1,0 +1,223 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --neon-green: #00ff00;
+    --dark-bg: #0a0a1f;
+    --panel-bg: rgba(10, 10, 31, 0.8);
+    --grid-color: rgba(0, 243, 255, 0.1);
+    --console-bg: rgba(0, 0, 0, 0.7);
+    --error-red: #ff0043;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.cyber-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(transparent 50%, rgba(0, 243, 255, 0.1) 100%);
+    animation: gridScan 8s linear infinite;
+}
+
+.cyber-header {
+    background: linear-gradient(45deg, rgba(255, 0, 255, 0.1), rgba(0, 243, 255, 0.1));
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--neon-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-title {
+    font-size: 2.5em;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+    margin-bottom: 20px;
+}
+
+.header-status {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.status-item {
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+.cyber-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.terminal-panel, .info-panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--neon-blue);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.panel-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--neon-blue);
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+.ctrl-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.panel-title {
+    color: var(--neon-blue);
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.terminal-content {
+    background: var(--console-bg);
+    padding: 20px;
+    min-height: 400px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.input-line {
+    display: flex;
+    margin-top: 10px;
+}
+
+.prompt {
+    color: var(--neon-green);
+    margin-right: 10px;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
+    flex: 1;
+    outline: none;
+}
+
+.info-content {
+    padding: 20px;
+}
+
+.target-info h3, .mission-hint h3 {
+    color: var(--neon-pink);
+    margin-bottom: 15px;
+}
+
+.target-info ul {
+    list-style: none;
+}
+
+.target-info li {
+    margin-bottom: 10px;
+    color: var(--neon-blue);
+}
+
+.mission-hint code {
+    display: block;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 3px solid var(--neon-pink);
+    color: var(--neon-green);
+    font-family: 'Share Tech Mono', monospace;
+    overflow-x: auto;
+}
+
+.hint-note {
+    color: var(--neon-pink);
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.cyber-footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--neon-blue);
+    margin-top: 50px;
+}
+
+@keyframes gridScan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (max-width: 1200px) {
+    .cyber-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-status {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cyber-title {
+        font-size: 1.8em;
+    }
+}

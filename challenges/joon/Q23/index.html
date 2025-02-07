@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedTeamMission #26 - Buffer Overflow Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    
+    <header class="cyber-header">
+        <div class="glitch-container">
+            <h1 class="cyber-title glitch" data-text="MISSION #23: BUFFER OVERFLOW">MISSION #26: BUFFER OVERFLOW</h1>
+        </div>
+        <div class="header-status">
+            <div class="status-item">SYSTEM: ACTIVE</div>
+            <div class="status-item">SECURITY: COMPROMISED</div>
+            <div class="status-item blink">STATUS: INFILTRATING...</div>
+        </div>
+    </header>
+
+    <main class="cyber-container">
+        <div class="memory-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">MEMORY VISUALIZATION</span>
+            </div>
+            <div class="memory-display">
+                <div class="memory-section buffer">
+                    <div class="section-label">BUFFER [32 BYTES]</div>
+                    <div class="memory-content" id="bufferContent">0x00000000</div>
+                </div>
+                <div class="memory-section sfp">
+                    <div class="section-label">SFP [8 BYTES]</div>
+                    <div class="memory-content" id="sfpContent">0xFFFFFFFF</div>
+                </div>
+                <div class="memory-section ret">
+                    <div class="section-label">RETURN ADDRESS [8 BYTES]</div>
+                    <div class="memory-content" id="retContent">0x4011d6</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exploit-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">EXPLOIT CONSOLE</span>
+            </div>
+            <div class="console-content">
+                <div id="output"></div>
+                <div class="input-line">
+                    <span class="prompt">root@cybercity:~$</span>
+                    <input type="text" id="userInput" class="console-input" 
+                           autofocus
+                           spellcheck="false">
+                </div>
+            </div>
+            <button class="cyber-button" onclick="executePayload()">
+                <span class="button-content">EXECUTE PAYLOAD</span>
+                <span class="button-glitch"></span>
+            </button>
+        </div>
+
+        <div class="info-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">MISSION BRIEFING</span>
+            </div>
+            <div class="info-content">
+                <div class="target-info">
+                    <h3>TARGET INFORMATION</h3>
+                    <ul>
+                        <li>💾 Buffer Size: 32 bytes</li>
+                        <li>🔍 SFP Size: 8 bytes</li>
+                        <li>↩️ Return Address: 8 bytes</li>
+                        <li>🎯 Target Function: get_flag()</li>
+                    </ul>
+                </div>
+                <div class="mission-hint">
+                    <h3>EXPLOITATION GUIDE</h3>
+                    <p>Python을 사용한 페이로드 생성 방법:</p>
+                    <code>python3 -c 'print([버퍼+SFP 크기만큼 채우기] + [get_flag 함수 주소])'</code>
+                    <p class="hint-note">* 주소는 리틀 엔디안 형식으로 변환이 필요합니다</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="cyber-footer">
+        <div class="team-signature">Created by LedTeam</div>
+        <div class="footer-warning">UNAUTHORIZED ACCESS IS PROHIBITED</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

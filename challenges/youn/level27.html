@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 27 - Login</title>
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- There is no logic or hints in the header. -->
+    <link rel="stylesheet" href="css/level27.css">
+</head>
+
+<body>
+    <!-- id : admin -->
+    <!-- looking at the js code will help you. -->
+    <div class="login-container">
+        <h1 class="neon-title">Level 27</h1>
+        <form id="login-form" method="POST">
+            <input type="hidden" name="form-name" value="login-form">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="login-btn">Login</button>
+        </form>
+    </div>
+
+    <!-- Alert Modal -->
+    <div class="modal fade" id="alert-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title" id="alert-modal-title"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="alert-modal-body">
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        id="alert-modal-end">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/youn/js/level27.js"></script>
+</body>
+
+</html>

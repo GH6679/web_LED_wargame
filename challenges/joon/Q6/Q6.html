@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedTeam Mission #6 - 정보 누출 방지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ff;
+            --dark-bg: #0a0a1f;
+            --grid-color: rgba(0, 243, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #fff;
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .cyber-header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid var(--neon-blue);
+            margin-bottom: 30px;
+        }
+
+        .cyber-title {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+        }
+
+        .hint-button {
+            background: transparent;
+            border: 1px solid var(--neon-pink);
+            color: var(--neon-pink);
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Share Tech Mono', monospace;
+            margin-top: 20px;
+        }
+
+        .hint-button:hover {
+            background: var(--neon-pink);
+            color: var(--dark-bg);
+            text-shadow: none;
+        }
+
+        .hint {
+            margin-top: 20px;
+            padding: 15px;
+            border-left: 3px solid var(--neon-pink);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="cyber-header">
+        <h1 class="cyber-title">MISSION #6: 정보 누출 방지</h1>
+    </header>
+
+    <div class="mission-content">
+        <p>🔍 검색 엔진이 어떤 페이지를 크롤링하지 않아야 하는지 명시한 파일을 통해 중요한 단서를 얻을 수 있습니다.</p>
+        <button class="hint-button" onclick="toggleHint()">힌트 보기</button>
+        <div class="hint"></div>
+    </div>
+
+    <!-- WxuRjvoVFTCbQMH0GhotDTIGiRHtUn -->
+    <script src="script.js"></script>
+</body>
+</html>

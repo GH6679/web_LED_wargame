@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedTeam Mission #2 - VI Editor Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    
+    <header class="cyber-header">
+        <div class="glitch-container">
+            <h1 class="cyber-title glitch" data-text="MISSION #2: VI EDITOR INFILTRATION">MISSION #2: VI EDITOR INFILTRATION</h1>
+        </div>
+        <div class="header-status">
+            <div class="status-item">SYSTEM: ACTIVE</div>
+            <div class="status-item">SECURITY: COMPROMISED</div>
+            <div class="status-item blink">STATUS: SEARCHING...</div>
+        </div>
+    </header>
+
+    <main class="cyber-container">
+        <div class="editor-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title" id="editorTitle">VI EDITOR</span>
+            </div>
+            <div class="editor-content" id="editorContent">
+                <!-- 파일 내용이 여기에 표시됩니다 -->
+            </div>
+            <div class="editor-status" id="editorStatus">
+                <span class="mode-indicator">NORMAL</span>
+                <span class="search-indicator"></span>
+            </div>
+        </div>
+
+        <div class="terminal-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">TERMINAL</span>
+            </div>
+            <div class="terminal-content">
+                <div id="output"></div>
+                <div class="input-line">
+                    <span class="prompt">ledteam@machine:~$</span>
+                    <input type="text" id="userInput" class="terminal-input" autofocus spellcheck="false">
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="panel-header">
+                <div class="controls">
+                    <span class="ctrl-btn red"></span>
+                    <span class="ctrl-btn yellow"></span>
+                    <span class="ctrl-btn green"></span>
+                </div>
+                <span class="panel-title">MISSION BRIEFING</span>
+            </div>
+            <div class="info-content">
+                <div class="target-info">
+                    <h3>대상 정보</h3>
+                    <ul>
+                        <li>📁 위치: /home/ledteam2/</li>
+                        <li>📄 파일: ledteam1.txt, ledteam2.txt</li>
+                        <li>🔍 목표: "company" 다음에 오는 문자열 찾기</li>
+                        <li>🔍 사용 가능 명령어: cat, vi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="cyber-footer">
+        <div class="team-signature">Created by LedTeam</div>
+        <div class="footer-warning">UNAUTHORIZED ACCESS IS PROHIBITED</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

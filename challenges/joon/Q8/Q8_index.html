@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED TEAM 워게임 - Mission #8</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ff;
+            --dark-bg: #0a0a0f;
+            --terminal-green: #33FF00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%),
+                url('../images/cyber-bg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .cyber-header {
+            background: linear-gradient(45deg, #ff00ff22, #00f3ff22);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0,243,255,0.3);
+        }
+
+        .cyber-title {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 5px var(--neon-blue),
+                0 0 10px var(--neon-blue),
+                0 0 15px var(--neon-pink);
+            letter-spacing: 3px;
+        }
+
+        .cyber-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .mission-box {
+            background: rgba(0,0,0,0.8);
+            border: 1px solid var(--neon-blue);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,243,255,0.1);
+        }
+
+        .mission-info {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0,243,255,0.05);
+            border: 1px solid var(--neon-blue);
+        }
+
+        .start-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: rgba(0,243,255,0.1);
+            border: 1px solid var(--neon-blue);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .start-btn:hover {
+            background: rgba(0,243,255,0.2);
+            box-shadow: 0 0 15px rgba(0,243,255,0.5);
+        }
+
+        .ascii-art {
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="cyber-header">
+        <h1 class="cyber-title">MISSION #8: COOKIE INFILTRATION</h1>
+        <div class="team-signature">Created by LedTeam</div>
+    </header>
+
+    <div class="cyber-container">
+        <div class="mission-box">
+            <div class="ascii-art">
+   _____  ____  ____  _  _______ ______
+  / ____|/ __ \|  _ \| |/ /_   _|  ____|
+ | |    | |  | | |_) | ' /  | | | |__   
+ | |    | |  | |  _ <|  <   | | |  __|  
+ | |____| |__| | |_) | . \ _| |_| |____ 
+  \_____|\____/|____/|_|\_\_____|______|
+            </div>
+
+            <div class="mission-info">
+                <h2>[ MISSION BRIEFING ]</h2>
+                <p>시스템에 접근하기 위해서는 올바른 쿠키 값이 필요합니다.</p>
+                <p>쿠키를 조작하여 시스템에 침투하세요.</p>
+                
+                <div class="conditions">
+                    <h3>[ HINTS ]</h3>
+                    <ul>
+                        <li>🍪 쿠키(cookie)를 체크(check)하는 것이 중요합니다</li>
+                        <li>🔍 개발자 도구(F12)를 활용하세요</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="Q8_login.php" class="start-btn">미션 시작</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

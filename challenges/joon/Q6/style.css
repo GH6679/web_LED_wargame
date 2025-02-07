@@ -1,0 +1,292 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --neon-green: #00ff00;
+    --dark-bg: #0a0a1f;
+    --panel-bg: rgba(10, 10, 31, 0.8);
+    --grid-color: rgba(0, 243, 255, 0.1);
+    --console-bg: rgba(0, 0, 0, 0.7);
+    --error-red: #ff0043;
+    --neon-purple: #b700ff;
+    --neon-yellow: #fff700;
+    --cyber-gradient: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    --text-shadow-blue: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+    --text-shadow-pink: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: #fff;
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.cyber-header {
+    background: linear-gradient(45deg, rgba(255, 0, 255, 0.1), rgba(0, 243, 255, 0.1));
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--neon-blue);
+}
+
+.cyber-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: var(--cyber-gradient);
+    
+    -webkit-text-fill-color: transparent;
+    text-shadow: var(--text-shadow-blue);
+    animation: titlePulse 2s infinite;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--neon-pink);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--neon-green);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+/* 나머지 스타일은 다음 메시지에서 계속... */ 
+.cyber-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.security-panel, .info-panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+}
+
+.warning-box {
+    background: rgba(255, 0, 67, 0.1);
+    border: 1px solid var(--error-red);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* 애니메이션 키프레임 추가 */
+@keyframes glitch-anim {
+    0% { clip: rect(42px, 9999px, 44px, 0); }
+    5% { clip: rect(12px, 9999px, 59px, 0); }
+    10% { clip: rect(48px, 9999px, 29px, 0); }
+    15% { clip: rect(42px, 9999px, 73px, 0); }
+    20% { clip: rect(63px, 9999px, 27px, 0); }
+    25% { clip: rect(34px, 9999px, 55px, 0); }
+    30% { clip: rect(86px, 9999px, 73px, 0); }
+    35% { clip: rect(20px, 9999px, 20px, 0); }
+    40% { clip: rect(26px, 9999px, 60px, 0); }
+    45% { clip: rect(25px, 9999px, 66px, 0); }
+    50% { clip: rect(57px, 9999px, 98px, 0); }
+    55% { clip: rect(5px, 9999px, 46px, 0); }
+    60% { clip: rect(82px, 9999px, 31px, 0); }
+    65% { clip: rect(54px, 9999px, 27px, 0); }
+    70% { clip: rect(28px, 9999px, 99px, 0); }
+    75% { clip: rect(45px, 9999px, 69px, 0); }
+    80% { clip: rect(23px, 9999px, 85px, 0); }
+    85% { clip: rect(54px, 9999px, 84px, 0); }
+    90% { clip: rect(45px, 9999px, 47px, 0); }
+    95% { clip: rect(37px, 9999px, 20px, 0); }
+    100% { clip: rect(4px, 9999px, 91px, 0); }
+} 
+
+/* 추가 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+/* 패널 헤더 스타일 개선 */
+.panel-header {
+    background: linear-gradient(90deg, rgba(0,243,255,0.1) 0%, rgba(183,0,255,0.1) 100%);
+    padding: 15px;
+    border-bottom: 1px solid var(--neon-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue);
+    letter-spacing: 1px;
+}
+
+/* 버튼 스타일 개선 */
+.cyber-button {
+    font-family: 'Orbitron', sans-serif;
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 12px 30px;
+    font-size: 1em;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cyber-button:hover {
+    background: var(--neon-blue);
+    color: var(--dark-bg);
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.cyber-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(0, 243, 255, 0.4),
+        transparent
+    );
+    transition: all 0.5s;
+}
+
+.cyber-button:hover::before {
+    left: 100%;
+}
+
+/* 스캔 라인 효과 개선 */
+.scan-line {
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--neon-blue),
+        var(--neon-green),
+        transparent
+    );
+    box-shadow: 0 0 15px var(--neon-blue);
+    animation: scanMove 3s linear infinite;
+}
+
+/* 리스트 아이템 스타일 */
+.target-info ul li {
+    margin: 15px 0;
+    padding-left: 20px;
+    position: relative;
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+    transition: all 0.3s ease;
+}
+
+.target-info ul li:hover {
+    transform: translateX(10px);
+    color: var(--neon-yellow);
+    text-shadow: 0 0 5px var(--neon-yellow);
+}
+
+/* 힌트 텍스트 스타일 */
+.hint p {
+    margin: 15px 0;
+    padding: 10px;
+    border-left: 3px solid var(--neon-pink);
+    background: rgba(255, 0, 255, 0.1);
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-pink);
+}
+
+/* 새로운 애니메이션 추가 */
+@keyframes titlePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes scanMove {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* 상태 표시 스타일 개선 */
+.status-item {
+    font-family: 'Share Tech Mono', monospace;
+    padding: 5px 15px;
+    border: 1px solid var(--neon-blue);
+    border-radius: 3px;
+    background: rgba(0, 243, 255, 0.1);
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 반응형 디자인 개선 */
+@media (max-width: 768px) {
+    .cyber-container {
+        padding: 10px;
+    }
+    
+    .cyber-title {
+        font-size: 1.5em;
+    }
+    
+    .status-item {
+        font-size: 0.9em;
+        margin: 5px 0;
+    }
+}
